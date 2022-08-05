@@ -6,7 +6,8 @@ In this practical we will introduce and practise basic debugging in R
 and RStudio. We will use the cost-effectiveness Markov model code to
 demonstrate this.
 
-Open up the scripts `debugging_script.R` run it.
+Open up the script `debugging_script.R` and run it by pressing the
+source button.
 
 We want to use the ‘broken’ functions for this practical so we will
 first source the files `ce_markov_debug1.R` and `p_matrix_cycle.R` by
@@ -17,10 +18,10 @@ source("ce_markov_debug1.R")
 source("p_matrix_cycle.R")
 ```
 
-Make sure this point to the correct folder for you.
+Make sure this points to the correct folder for you.
 
-This is the main script from which to run the analysis which calls our
-functions. You should get the following error
+`debugging_script.R` is the main script from which to run the analysis
+which calls our function `ce_markov`. You should get the following error
 
     Error in cycle_state_costs[i, ] <- (state_c_matrix[treatment = i, ] %*%  : 
       number of items to replace is not a multiple of replacement length
@@ -52,7 +53,8 @@ use
 debugonce(ce_markov)
 ```
 
-Now run
+Once you’ve set this either re-soruce `debugging_script.R` or just run
+the relevant bit
 
 ``` r
 ce_res <- ce_markov(start_pop = c(n_pop, 0, 0),
@@ -191,10 +193,10 @@ If we go back to the original error message
       number of items to replace is not a multiple of replacement length
 
 This is telling us that the dimensions of `cycle_state_costs` and the
-result of the right hand side don’t match.
-
-Let us first see what these dimensions are. Add a break point just
-before this line and then type
+result of the right hand side don’t match. To see why let us first see
+what these dimensions are. Add a break point just before this line and
+then type the following in the console when you enter the debugging
+mode.
 
 ``` r
 dim(state_c_matrix[treatment = i, ] %*% pop[, , treatment = i])

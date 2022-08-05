@@ -42,9 +42,9 @@ To create our first test file write
 usethis::use_test("p_matrix_cycle")
 ```
 
-Here, we name this file the same as our function name. This creates a new file under `tests/ testthat` named `test-p_matrix_cycle.R`, and the file pre-populates with an example test that we can replace.
+Here, we name this file the same as our function name but you can call it whatever you find useful. This creates a new file under `tests/ testthat` named `test-p_matrix_cycle.R`, i.e. it prepends `test-` to the file name, and the file pre-populates with an example test that we can replace.
 
-For our first unit test, we create an object that contains the expected results of an example function execution, and then we assess the correctness of the output using the `testthat::expect_*` functions.
+For our first unit test, we will create an object that contains the expected results of an example function execution, and then we assess the correctness of the output using the `testthat::expect_*` functions.
 
 We name the overall test chunk `assess_p_matrix_cycle` - you can name this whatever would be useful for you to read in a testing log.
 We first need to provide some input values for the test.
